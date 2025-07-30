@@ -86,6 +86,7 @@
 		FB79F9CB1B52E069000DFE8C /* ef2.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = ef2.aif; sourceTree = "<group>"; };
 		FB79F9CC1B52E069000DFE8C /* bd.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = bd.aif; sourceTree = "<group>"; };
 		FB8BCFC41B4456120077854C /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		FB8BCFC6NEWBASE120077854C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		FB8BCFC51B4456120077854C /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenubackup.xib; sourceTree = "<group>"; };
 		FB8BCFC81B45A0E20077854C /* whiteline.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = whiteline.png; sourceTree = "<group>"; };
 		FB94493C1B1BF14B00DAA49D /* CustomWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustomWindow.h; path = SingX/CustomWindow.h; sourceTree = "<group>"; };
@@ -336,10 +337,11 @@
 			};
 			buildConfigurationList = FBDEC1F91B05299C00BAAA59 /* Build configuration list for PBXProject "SingX" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = FBDEC1F51B05299C00BAAA59;
 			productRefGroup = FBDEC1FF1B05299C00BAAA59 /* Products */;
@@ -436,10 +438,18 @@
 		FBDEC20C1B05299C00BAAA59 /* MainMenu.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				FBD1C4671B278A60007F6D60 /* en */,
+				FB8BCFC6NEWBASE120077854C /* Base */,
 				FB8BCFC41B4456120077854C /* en */,
 			);
 			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+		FBD1C4671B278A60007F6D60STRINGS /* MainMenu.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FBD1C4671B278A60007F6D60 /* en */,
+			);
+			name = MainMenu.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -518,6 +528,7 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
+				VALIDATE_STORYBOARDS = NO;
 			};
 			name = Debug;
 		};
@@ -553,6 +564,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = macosx;
+				VALIDATE_STORYBOARDS = NO;
 			};
 			name = Release;
 		};
@@ -567,6 +579,8 @@
 				OSACOMPILE_EXECUTE_ONLY = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
+				VALIDATE_STORYBOARDS = NO;
+				USES_XCODE_LOCALIZATION_EXPORT = YES;
 			};
 			name = Debug;
 		};
@@ -583,6 +597,8 @@
 				OSACOMPILE_EXECUTE_ONLY = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
+				VALIDATE_STORYBOARDS = NO;
+				USES_XCODE_LOCALIZATION_EXPORT = YES;
 			};
 			name = Release;
 		};
