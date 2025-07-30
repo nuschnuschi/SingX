@@ -28,7 +28,7 @@
 ### 6. ARC（自動参照カウント）の有効化
 - `CLANG_ENABLE_OBJC_ARC`を`NO`から`YES`に変更
 - 現代的なメモリ管理を有効にしました
-- **注意**: この変更により、手動のメモリ管理コード（retain/release）の修正が必要になる場合があります
+- **完了**: 手動メモリ管理コード（retain/release/dealloc）を削除済み
 
 ### 7. Info.plistの現代化
 - 非推奨の`CFBundleSignature`キーを削除
@@ -38,6 +38,11 @@
 - `VALIDATE_STORYBOARDS = NO`設定を追加してXIB検証を無効化
 - 古いMainMenu.xibファイルのInterface Builderバージョンを更新
 - `useAutolayout="YES"`属性を追加してAuto Layout対応を宣言
+
+### 9. ARCコード互換性の修正
+- `CustomView.m`と`GRProgressIndicator.m`の手動メモリ管理コードを削除
+- 非推奨の`NSCompositeSourceOver`を`NSCompositingOperationSourceOver`に更新
+- ARC対応のためdeallocメソッドから`[super dealloc]`と`[obj release]`を削除
 
 ## 互換性について
 
