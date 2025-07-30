@@ -518,6 +518,7 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
+				VALIDATE_STORYBOARDS = NO;
 			};
 			name = Debug;
 		};
@@ -553,6 +554,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = macosx;
+				VALIDATE_STORYBOARDS = NO;
 			};
 			name = Release;
 		};
@@ -567,6 +569,7 @@
 				OSACOMPILE_EXECUTE_ONLY = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
+				VALIDATE_STORYBOARDS = NO;
 			};
 			name = Debug;
 		};
@@ -583,6 +586,7 @@
 				OSACOMPILE_EXECUTE_ONLY = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
+				VALIDATE_STORYBOARDS = NO;
 			};
 			name = Release;
 		};

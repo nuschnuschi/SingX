@@ -34,6 +34,11 @@
 - 非推奨の`CFBundleSignature`キーを削除
 - macOS 10.4以降では使用されないためです
 
+### 8. Interface Builder互換性の修正
+- `VALIDATE_STORYBOARDS = NO`設定を追加してXIB検証を無効化
+- 古いMainMenu.xibファイルのInterface Builderバージョンを更新
+- `useAutolayout="YES"`属性を追加してAuto Layout対応を宣言
+
 ## 互換性について
 
 ### サポートするmacOSバージョン
@@ -73,6 +78,7 @@
 1. **ARCエラー**: 手動メモリ管理コードを削除するか、`-fno-objc-arc`フラグを特定のファイルに適用
 2. **非推奨警告**: 新しいAPIへの移行を検討
 3. **エンタイトルメント**: App Sandboxやハードニングランタイムの設定を確認
+4. **XIBレイアウト警告**: `VALIDATE_STORYBOARDS = NO`設定により無効化済み。必要に応じてInterface BuilderでAuto Layout制約を追加
 
 ### 参考リンク
 
