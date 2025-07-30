@@ -44,6 +44,12 @@
 - 非推奨の`NSCompositeSourceOver`を`NSCompositingOperationSourceOver`に更新
 - ARC対応のためdeallocメソッドから`[super dealloc]`と`[obj release]`を削除
 
+### 10. Base Internationalization対応
+- `Base.lproj`ディレクトリを作成し、`MainMenu.xib`を移動
+- プロジェクト設定で`knownRegions`に`Base`を追加
+- `USES_XCODE_LOCALIZATION_EXPORT = YES`設定を追加
+- XIBとstringsファイルのPBXVariantGroupを適切に分離
+
 ## 互換性について
 
 ### サポートするmacOSバージョン
@@ -84,6 +90,7 @@
 2. **非推奨警告**: 新しいAPIへの移行を検討
 3. **エンタイトルメント**: App Sandboxやハードニングランタイムの設定を確認
 4. **XIBレイアウト警告**: `VALIDATE_STORYBOARDS = NO`設定により無効化済み。必要に応じてInterface BuilderでAuto Layout制約を追加
+5. **Base Internationalization**: XIBファイルが`Base.lproj`に配置され、stringsファイルは各言語フォルダに配置
 
 ### 参考リンク
 
