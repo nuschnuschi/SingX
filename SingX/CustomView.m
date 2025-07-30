@@ -24,9 +24,8 @@
 }
 
 - (void)dealloc {
-    
-    [bgImage release];
-    [super dealloc];
+    // ARC handles memory management automatically
+    // No need for manual release or super dealloc
 }
 
 /*
@@ -48,11 +47,11 @@
     if ([[self window] alphaValue] > 0.7) {
         shouldDisplayWindow = (showingbg == YES);
         showingbg = NO;
-        [bgImage drawAtPoint:NSZeroPoint fromRect:NSZeroRect operation:NSCompositeSourceOver fraction:1.0];
+        [bgImage drawAtPoint:NSZeroPoint fromRect:NSZeroRect operation:NSCompositingOperationSourceOver fraction:1.0];
     } else {
         shouldDisplayWindow = (showingbg == YES);
         showingbg = NO;
-        [bgImage drawAtPoint:NSZeroPoint fromRect:NSZeroRect operation:NSCompositeSourceOver fraction:1.0];
+        [bgImage drawAtPoint:NSZeroPoint fromRect:NSZeroRect operation:NSCompositingOperationSourceOver fraction:1.0];
     }
     // Reset the window shape and shadow.
     if (shouldDisplayWindow) {
