@@ -9188,9 +9188,12 @@ end if
       set allnotesFile to appDir & "/allnotes_temp.txt"
       set jsonFile to appDir & "/notes.json"
       
-      -- allnotesを一時ファイルに保存（echoコマンドを使用）
+      -- allnotesを一時ファイルに保存（AppleScriptのファイル操作を使用）
       try
-          do shell script "echo " & quoted form of (allnotes as string) & " > " & quoted form of allnotesFile
+          set allnotesStr to allnotes as string
+          set fileRef to open for access file allnotesFile with write permission
+          write allnotesStr to fileRef
+          close access fileRef
           
           -- PythonスクリプトでJSONに変換
           do shell script "python3 " & quoted form of (appDir & "/parse_notes.py") & " " & quoted form of allnotesFile & " " & quoted form of jsonFile
