@@ -9182,9 +9182,27 @@ end if
                 else
             end if
             else
-      -- allnotesをJSONに変換してSingX/notes.jsonに保存する処理（仮）
-      -- ここは後で自動化スクリプトを用意します
-      do shell script "swift SingX/sing.swift SingX/notes.json"
+      -- allnotesをJSONに変換してSingX/notes.jsonに保存する処理
+      set allnotesFile to (path to temporary items as string) & "allnotes_temp.txt"
+      set jsonFile to "SingX/notes.json"
+      
+      -- allnotesを一時ファイルに保存
+      try
+          set fileRef to open for access file allnotesFile with write permission
+          write allnotes to fileRef
+          close access fileRef
+          
+          -- PythonスクリプトでJSONに変換
+          do shell script "python3 SingX/parse_notes.py " & quoted form of allnotesFile & " " & quoted form of jsonFile
+          
+          -- Swiftスクリプトで音声再生
+          do shell script "swift SingX/sing.swift " & quoted form of jsonFile
+          
+      on error errMsg
+          display alert "Error processing notes: " & errMsg
+          set messg to "Error processing notes..."
+          previewWindow's setStringValue_(messg)
+      end try
       end if
       
       on error errorMessage number errorNumber
@@ -9198,7 +9216,7 @@ end if
       end if
 
       try
-          do shell script "killall say"
+          do shell script "killall swift"
           on error
           
       end try

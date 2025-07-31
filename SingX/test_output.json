@@ -1,0 +1,58 @@
+[
+  {
+    "text": "URNS",
+    "pitch": 0.5,
+    "rate": 0.66,
+    "volume": 1.0,
+    "pause": null
+  },
+  {
+    "text": "and",
+    "pitch": 1.667,
+    "rate": 0.755,
+    "volume": 1.0,
+    "pause": null
+  },
+  {
+    "text": "odours",
+    "pitch": 1.667,
+    "rate": 0.585,
+    "volume": 1.0,
+    "pause": null
+  },
+  {
+    "text": "bring",
+    "pitch": 1.667,
+    "rate": 0.465,
+    "volume": 1.0,
+    "pause": 0.4
+  },
+  {
+    "text": "away",
+    "pitch": 0.5,
+    "rate": 0.85,
+    "volume": 1.0,
+    "pause": null
+  },
+  {
+    "text": "Vapours",
+    "pitch": 2.0,
+    "rate": 0.63,
+    "volume": 1.0,
+    "pause": null
+  },
+  {
+    "text": "sighs",
+    "pitch": 1.333,
+    "rate": 0.86,
+    "volume": 1.0,
+    "pause": null
+  },
+  {
+    "text": "darken",
+    "pitch": 0.5,
+    "rate": 0.845,
+    "volume": 1.0,
+    "pause": 0.4
+  }
+]
