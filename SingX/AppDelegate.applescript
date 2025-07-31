@@ -9183,18 +9183,20 @@ end if
             end if
             else
       -- allnotesをJSONに変換してSingX/notes.jsonに保存する処理
-      set allnotesFile to (path to temporary items as string) & "allnotes_temp.txt"
-      set jsonFile to "SingX/notes.json"
+      set appPath to (path to me as string)
+      set appDir to do shell script "dirname " & quoted form of appPath
+      set allnotesFile to appDir & "/allnotes_temp.txt"
+      set jsonFile to appDir & "/notes.json"
       
       -- allnotesを一時ファイルに保存（echoコマンドを使用）
       try
           do shell script "echo " & quoted form of (allnotes as string) & " > " & quoted form of allnotesFile
           
           -- PythonスクリプトでJSONに変換
-          do shell script "python3 SingX/parse_notes.py " & quoted form of allnotesFile & " " & quoted form of jsonFile
+          do shell script "python3 " & quoted form of (appDir & "/parse_notes.py") & " " & quoted form of allnotesFile & " " & quoted form of jsonFile
           
           -- Swiftスクリプトで音声再生
-          do shell script "swift SingX/sing.swift " & quoted form of jsonFile
+          do shell script "swift " & quoted form of (appDir & "/sing.swift") & " " & quoted form of jsonFile
           
       on error errMsg
           display alert "Error processing notes: " & errMsg
