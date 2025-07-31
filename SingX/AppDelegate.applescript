@@ -9186,11 +9186,9 @@ end if
       set allnotesFile to (path to temporary items as string) & "allnotes_temp.txt"
       set jsonFile to "SingX/notes.json"
       
-      -- allnotesを一時ファイルに保存
+      -- allnotesを一時ファイルに保存（echoコマンドを使用）
       try
-          set fileRef to open for access file allnotesFile with write permission
-          write allnotes to fileRef
-          close access fileRef
+          do shell script "echo " & quoted form of (allnotes as string) & " > " & quoted form of allnotesFile
           
           -- PythonスクリプトでJSONに変換
           do shell script "python3 SingX/parse_notes.py " & quoted form of allnotesFile & " " & quoted form of jsonFile
