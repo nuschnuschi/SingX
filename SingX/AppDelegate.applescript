@@ -9182,7 +9182,9 @@ end if
                 else
             end if
             else
-      do shell script "say" & voiceNameStr & wdhead & allnotes & " &>/dev/null &"
+      -- allnotesをJSONに変換してSingX/notes.jsonに保存する処理（仮）
+      -- ここは後で自動化スクリプトを用意します
+      do shell script "swift SingX/sing.swift SingX/notes.json"
       end if
       
       on error errorMessage number errorNumber
