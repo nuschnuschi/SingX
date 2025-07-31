@@ -9190,7 +9190,8 @@ end if
       
       -- allnotesを一時ファイルに保存（AppleScriptのファイル操作を使用）
       try
-          set allnotesStr to allnotes as string
+          -- allnotesを直接文字列として取得し直す
+          set allnotesStr to (editorWindow's |string|()) as string
           set fileRef to open for access file allnotesFile with write permission
           write allnotesStr to fileRef
           close access fileRef
