@@ -9182,7 +9182,31 @@ end if
                 else
             end if
             else
-      do shell script "say" & voiceNameStr & wdhead & allnotes & " &>/dev/null &"
+      -- allnotesをJSONに変換してSingX/notes.jsonに保存する処理
+      set appPath to (path to me as string)
+      set appDir to do shell script "dirname " & quoted form of appPath
+      set allnotesFile to appDir & "/allnotes_temp.txt"
+      set jsonFile to appDir & "/notes.json"
+      
+      -- allnotesを一時ファイルに保存（AppleScriptのファイル操作を使用）
+      try
+          -- allnotesを直接文字列として取得し直す
+          set allnotesStr to (editorWindow's |string|()) as string
+          set fileRef to open for access file allnotesFile with write permission
+          write allnotesStr to fileRef
+          close access fileRef
+          
+          -- PythonスクリプトでJSONに変換
+          do shell script "python3 " & quoted form of (appDir & "/parse_notes.py") & " " & quoted form of allnotesFile & " " & quoted form of jsonFile
+          
+          -- Swiftスクリプトで音声再生
+          do shell script "swift " & quoted form of (appDir & "/sing.swift") & " " & quoted form of jsonFile
+          
+      on error errMsg
+          display alert "Error processing notes: " & errMsg
+          set messg to "Error processing notes..."
+          previewWindow's setStringValue_(messg)
+      end try
       end if
       
       on error errorMessage number errorNumber
@@ -9196,7 +9220,7 @@ end if
       end if
 
       try
-          do shell script "killall say"
+          do shell script "killall swift"
           on error
           
       end try

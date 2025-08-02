@@ -1,0 +1,8 @@
+[[pbas 57]] [[rate 132]] [[pmod 1]] [[volm 1.0]] URNS 
+[[pbas 64]] [[rate 151]] [[pmod 1]] [[volm 1.0]] and 
+[[pbas 64]] [[rate 117]] [[pmod 3]] [[volm 1.0]] odours 
+[[pbas 64]] [[rate 93]] [[pmod 0]] [[volm 1.0]] bring [[slnc 400]]
+[[pbas 57]] [[rate 170]] [[pmod 1]] [[volm 1.0]] away 
+[[pbas 66]] [[rate 126]] [[pmod 0]] [[volm 1.0]] Vapours 
+[[pbas 62]] [[rate 172]] [[pmod 0]] [[volm 1.0]] sighs 
+[[pbas 57]] [[rate 169]] [[pmod 3]] [[volm 1.0]] darken [[slnc 400]]
