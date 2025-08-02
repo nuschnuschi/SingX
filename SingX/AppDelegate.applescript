@@ -9188,13 +9188,13 @@ end if
       set allnotesFile to appDir & "/allnotes_temp.txt"
       set jsonFile to appDir & "/notes.json"
       
-      -- allnotesを一時ファイルに保存（AppleScriptのファイル操作を使用）
+      -- allnotesを一時ファイルに保存（シェルコマンドを使用）
       try
-          -- allnotesを直接文字列として取得し直す
-          set allnotesStr to (editorWindow's |string|()) as string
-          set fileRef to open for access file allnotesFile with write permission
-          write allnotesStr to fileRef
-          close access fileRef
+          -- エディタウィンドウから直接テキストを取得してシェルコマンドで保存
+          set editorText to editorWindow's |string|()
+          
+          -- シェルコマンドでファイルに保存（型変換を回避）
+          do shell script "cat > " & quoted form of allnotesFile & " << 'EOF'" & return & editorText & return & "EOF"
           
           -- PythonスクリプトでJSONに変換
           do shell script "python3 " & quoted form of (appDir & "/parse_notes.py") & " " & quoted form of allnotesFile & " " & quoted form of jsonFile
